@@ -1,0 +1,138 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>渐变</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        ul,
+        li {
+            list-style: none;
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+            cursor: pointer;
+        }
+        
+        .wrap {
+            margin-top: 20px;
+        }
+        
+        .fade-slide {
+            margin-top: 20px;
+            width: 500px;
+            height: 300px;
+            position: relative;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+        
+        .fade-slide .container-img>li {
+            position: absolute;
+            display: none;
+        }
+        
+        .fade-slide .container-img img {
+            width: 500px;
+            height: 300px;
+        }
+        
+        .button {
+            width: 28px;
+            height: 28px;
+            display: block;
+            border-radius: 14px;
+            background: #666;
+            text-align: center;
+            line-height: 28px;
+            color: lightgrey;
+            opacity: .8;
+        }
+        
+        .back {
+            position: absolute;
+            top: 50%;
+            left: 4px;
+            transform: translate(0, -50%)
+        }
+        
+        .forward {
+            position: absolute;
+            top: 50%;
+            right: 4px;
+            transform: translate(0, -50%)
+        }
+        
+        .fade-slide .bullet {
+            width: 112px;
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translate(-50%, 0px);
+        }
+        
+        .fade-slide .bullet:after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+        
+        .fade-slide .bullet>li {
+            width: 16px;
+            height: 8px;
+            border-radius: 6px;
+            background: slategrey;
+            float: left;
+            margin: 0 4px;
+            opacity: .6;
+        }
+        
+        .fade-slide .bullet .active {
+            background: lightgrey;
+            opacity: 1;
+        }
+    </style>
+
+    <body>
+        <div class="wrap">
+            <div class='fade-slide'>
+                <ul class='container-img'>
+                    <li data-index='0'>
+                        <a href="#"><img src="http://cdn.jirengu.com/book.jirengu.com/img/1.jpg" alt="1.jpg"></a>
+                    </li>
+                    <li data-index='1'>
+                        <a href="#"><img src="http://cdn.jirengu.com/book.jirengu.com/img/2.jpg" alt="2.jpg"></a>
+                    </li>
+                    <li data-index='2'>
+                        <a href="#"><img src="http://cdn.jirengu.com/book.jirengu.com/img/3.jpg" alt="3.jpg"></a>
+                    </li>
+                    <li data-index='3'>
+                        <a href="#"><img src="http://cdn.jirengu.com/book.jirengu.com/img/4.jpg" alt="4.jpg"></a>
+                    </li>
+                </ul>
+                <a href="#" class="button back">&lt;</a>
+                <a href="#" class="button forward">&gt;</a>
+                <ul class="bullet">
+                    <li class="active"></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+            </div>
+        </div>
+    </body>
+    <script src="../js/jquery-3.2.1.js"></script>
+    <script src="../js/auto-fadeSlide.js"></script>
+    <script>
+        FadeSlide.init($('.fade-slide'))
+    </script>
+</head>
+
+</html>
