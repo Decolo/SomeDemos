@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>日历组件</title>
+    <style>
+        * {
+            font-size: 14px;
+            margin: 0;
+            padding: 0;
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        ul,
+        li {
+            list-style: none;
+        }
+        
+        .wrap {
+            width: 600px;
+        }
+        
+        .clearfix:after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+        
+        .calendar {
+            float: left;
+            position: relative;
+        }
+        
+        .date-input {
+            margin: 20px;
+            width: 200px;
+            padding: 10px;
+            border-radius: 4px;
+            border: none;
+            box-shadow: 0 1px 4px #ccc;
+            text-align: center;
+            font-weight: 300;
+        }
+        
+        .calendar-container {
+            width: 220px;
+            text-align: center;
+            box-shadow: 0 3px 4px #ccc;
+            border-bottom-left-radius: 4px;
+            border-bottom-right-radius: 4px;
+            z-index: -2;
+        }
+        
+        .calendar-container .calendar-header {
+            font-weight: 300;
+            background-color: rgba(0, 100, 255, .6);
+            color: white
+        }
+        
+        .calendar-container .calendar-header .pre {
+            float: left;
+            padding: 10px;
+            font-size: 1em;
+            display: inline-block;
+        }
+        
+        .calendar-container .calendar-header .current-month {
+            padding: 12px;
+            display: inline-block
+        }
+        
+        .calendar-container .calendar-header .next {
+            float: right;
+            padding: 10px;
+            font-size: 1em;
+            display: inline-block;
+        }
+        
+        .calendar-container .panel thead tr th {
+            font-weight: 400;
+            width: 32px;
+            padding-top: 4px;
+            padding-bottom: 10px;
+            font-size: 1em;
+            margin-bottom:
+        }
+        
+        .calendar-container .panel tbody tr td {
+            font-weight: 300;
+            font-size: 1em;
+            height: 29px;
+        }
+        
+        .calendar-container .panel .cur-month:hover {
+            background-color: #ff4e41;
+            color: white;
+            border-radius: 16px;
+        }
+        
+        .calendar-container .panel .cur-month.cur-date:hover {
+            color: white;
+            text-shadow: none;
+        }
+        
+        .calendar-container .panel .pre-month,
+        .next-month {
+            opacity: .4
+        }
+        
+        .calendar-container .panel .cur-month.cur-date {
+            color: red;
+            font-weight: 400;
+            text-shadow: 0 1px 1px #ccc;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap clearfix">
+        <div class="calendar">
+            <input class="date-input" placeholder="xx年xx月" />
+        </div>
+        <div class="calendar">
+            <input class="date-input" placeholder="xx年xx月" />
+        </div>
+    </div>
+
+    <script src="./jquery-3.2.1.js"></script>
+    <script src="./datePicker.js"></script>
+    <script>
+        $('.date-input').datePicker()
+    </script>
+</body>
+
+</html>

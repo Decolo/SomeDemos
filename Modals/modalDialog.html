@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Modal-dialog</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            font: 12px/1 Tahoma, Helvetica, Arial, "\5b8b\4f53", sans-serif;
+            color: #536160;
+        }
+        
+        ul,
+        li {
+            list-style: none;
+        }
+        
+        .clearfix:after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+            cursor: pointer;
+        }
+        
+        button {
+            padding: 6px;
+            margin: 10px;
+            border: none;
+            border-radius: 4px;
+            box-shadow: 0 1px 3px #a4a4b4;
+            background-color: white;
+        }
+        
+        .dialog {
+            width: 250px;
+            box-shadow: 0 2px 6px #a4a4b4;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 10px;
+            background-color: white;
+            z-index: 2
+        }
+        
+        .background-cover {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: gray;
+            opacity: 0.1;
+            z-index: 1
+        }
+        
+        .dialog .dialog-header {
+            padding: 6px 0;
+            background-color: #83cbf4;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+        
+        .dialog .dialog-header h3 {
+            font-size: 1.2rem;
+            display: inline-block;
+            padding: 6px 10px;
+        }
+        
+        .dialog .dialog-header .btn-close {
+            font-size: 1rem;
+            float: right;
+            padding: 6px 10px;
+        }
+        
+        .dialog .dialog-content {
+            padding: 20px 0;
+            margin: 0px 10px;
+            font-size: 1.2rem;
+        }
+        
+        .dialog .dialog-chioce {
+            text-align: center;
+            padding: 10px 0;
+        }
+        
+        .dialog .dialog-chioce a {
+            font-size: 1.2rem;
+            display: inline-block;
+            padding: 6px 10px;
+            color: white;
+            background-color: #4aead9;
+            border-radius: 4px
+        }
+        
+        .dialog .btn-close {
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <button class="btn1">modal1</button>
+    <button class="btn2">modal2</button>
+    <button class="btn3">modal3</button>
+    <button class="btn4">modal4</button>
+    <button class="btn5">modal5</button>
+
+    <!--<div class='dialog'>
+        <div class="dialog-header clearfix">
+            <h3>标题</h3><span class="btn-close">x</span>
+        </div>
+        <div class="dialog-content">hello,大家好</div>
+        <div class='dialog-chioce'>
+            <a href="#" class='confirm'>确定</a>
+            <a href="#" class='cancel'>取消</a>
+        </div>
+    </div>-->
+</body>
+<script src="./jquery-3.2.1.js"></script>
+<script src="./modalDialog.js"></script>
+<script>
+    $('.btn1').on('click', function() {
+        Dialog.open('hello, 你好');
+    });
+
+    $('.btn2').on('click', function() {
+        Dialog.open('<a href="http://zhihu.com">知乎</a>');
+    });
+
+    $('.btn3').on('click', function() {
+        Dialog.open({
+            title: '标题',
+            message: 'hello',
+            isShowCloseBtn: true,
+            isShowConfirmBtn: true,
+            onCancel: function() {
+                alert('close')
+            },
+            onConfirm: function() {
+                alert('confirm')
+            }
+        });
+    });
+
+    var list = `<ul>
+                    <li>option1</li>
+                    <li>option2</li>
+                    <li>option3</li>
+                    <li>option4</li>
+                </ul>`
+    $('.btn4').on('click', function() {
+        Dialog.open({
+            title: '标题',
+            message: list,
+            isShowCloseBtn: true,
+            isShowConfirmBtn: true,
+            onCancel: function() {
+                alert('close')
+            },
+            onConfirm: function() {
+                alert('confirm')
+            }
+        });
+    });
+    $('.btn5').on('click', function() {
+        Dialog.open({
+            title: '标题',
+            message: 'hello',
+            isShowCloseBtn: false,
+            isShowConfirmBtn: false
+        });
+    });
+</script>
+
+</html>
