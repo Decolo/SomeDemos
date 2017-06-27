@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html charset="UTF-8">
+
+<head>
+    <title>Draggable-demo</title>
+</head>
+<style>
+    .dialog {
+        width: 300px;
+        height: 300px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: aquamarine;
+    }
+    
+    .draggable {
+        opacity: .8;
+        cursor: move;
+    }
+</style>
+
+<body>
+    <div class="dialog">
+    </div>
+    <script src="./Draggable.js"></script>
+    <script>
+        Draggable.init(document.getElementsByClassName('dialog'))
+    </script>
+</body>
+
+</html>
